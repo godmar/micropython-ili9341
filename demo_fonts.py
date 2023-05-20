@@ -8,9 +8,9 @@ from xglcd_font import XglcdFont
 def test():
     """Test code."""
     # Baud rate of 40000000 seems about the max
-    spi = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
-    display = Display(spi, dc=Pin(4), cs=Pin(16), rst=Pin(17))
-
+    spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
+    display = Display(spi, dc=Pin(16), cs=Pin(18), rst=Pin(17))
+    
     print('Loading fonts...')
     print('Loading arcadepix')
     arcadepix = XglcdFont('fonts/ArcadePix9x11.c', 9, 11)
@@ -22,8 +22,8 @@ def test():
     espresso_dolce = XglcdFont('fonts/EspressoDolce18x24.c', 18, 24)
     print('Loading fixed_font')
     fixed_font = XglcdFont('fonts/FixedFont5x8.c', 5, 8)
-    print('Loading neato')
-    neato = XglcdFont('fonts/Neato5x7.c', 5, 7, letter_count=223)
+    #print('Loading neato')
+    #neato = XglcdFont('fonts/Neato5x7.c', 5, 7, letter_count=223)
     print('Loading robotron')
     robotron = XglcdFont('fonts/Robotron13x21.c', 13, 21)
     print('Loading unispace')
@@ -39,7 +39,7 @@ def test():
                       color565(0, 255, 255))
     display.draw_text(0, 104, 'Fixed Font 5x8', fixed_font,
                       color565(255, 0, 255))
-    display.draw_text(0, 125, 'Neato 5x7', neato, color565(255, 255, 0))
+    #display.draw_text(0, 125, 'Neato 5x7', neato, color565(255, 255, 0))
     display.draw_text(0, 155, 'ROBOTRON 13X21', robotron,
                       color565(255, 255, 255))
     display.draw_text(0, 190, 'Unispace 12x24', unispace,
@@ -60,8 +60,8 @@ def test():
                       color565(0, 255, 255), landscape=True)
     display.draw_text(104, 255, 'Fixed Font 5x8', fixed_font,
                       color565(255, 0, 255), landscape=True)
-    display.draw_text(125, 255, 'Neato 5x7', neato, color565(255, 255, 0),
-                      landscape=True)
+    #display.draw_text(125, 255, 'Neato 5x7', neato, color565(255, 255, 0),
+    #                  landscape=True)
     display.draw_text(155, 255, 'ROBOTRON 13X21', robotron,
                       color565(255, 255, 255),
                       landscape=True)
@@ -84,8 +84,8 @@ def test():
                       color565(0, 255, 255), background=color565(255, 0, 0))
     display.draw_text(0, 104, 'Fixed Font 5x8', fixed_font,
                       color565(255, 0, 255), background=color565(0, 128, 0))
-    display.draw_text(0, 125, 'Neato 5x7', neato, color565(255, 255, 0),
-                      background=color565(0, 0, 255))
+    #display.draw_text(0, 125, 'Neato 5x7', neato, color565(255, 255, 0),
+    #                  background=color565(0, 0, 255))
     display.draw_text(0, 155, 'ROBOTRON 13X21', robotron,
                       color565(255, 255, 255),
                       background=color565(128, 128, 128))

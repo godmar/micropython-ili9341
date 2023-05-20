@@ -6,8 +6,8 @@ from machine import Pin, SPI  # type: ignore
 
 def test():
     """Test code."""
-    spi = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
-    display = Display(spi, dc=Pin(4), cs=Pin(16), rst=Pin(17))
+    spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
+    display = Display(spi, dc=Pin(16), cs=Pin(18), rst=Pin(17))
 
     x_center = display.width // 2
     y_center = display.height // 2

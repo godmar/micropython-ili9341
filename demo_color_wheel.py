@@ -52,8 +52,8 @@ def hsv_to_rgb(h, s, v):
 def test():
     """Test code."""
     # Baud rate of 40000000 seems about the max
-    spi = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
-    display = Display(spi, dc=Pin(4), cs=Pin(16), rst=Pin(17))
+    spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
+    display = Display(spi, dc=Pin(16), cs=Pin(18), rst=Pin(17))
 
     x, y = 0, 0
     angle = 0.0

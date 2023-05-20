@@ -11,9 +11,8 @@ def test():
     espresso_dolce = XglcdFont('fonts/EspressoDolce18x24.c', 18, 24)
     print('Font loaded.')
     # Baud rate of 40000000 seems about the max
-    spi = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
-    
-    display = Display(spi, dc=Pin(4), cs=Pin(16), rst=Pin(17),
+    spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
+    display = Display(spi, dc=Pin(16), cs=Pin(18), rst=Pin(17),
 					  width=240, height=320, rotation=0)
     display.draw_text(0, 0, 'Espresso Dolce 18x24', espresso_dolce,
                       color565(0, 255, 255))

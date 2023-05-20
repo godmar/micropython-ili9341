@@ -18,7 +18,7 @@ class Demo(object):
             spi2 (SPI): SPI bus
         """
         self.display = display
-        self.touch = Touch(spi2, cs=Pin(5), int_pin=Pin(0),
+        self.touch = Touch(spi2, cs=Pin(6), int_pin=Pin(5),
                            int_handler=self.touchscreen_press)
         # Display initial message
         self.display.draw_text8x8(self.display.width // 2 - 32,
@@ -33,7 +33,9 @@ class Demo(object):
     def touchscreen_press(self, x, y):
         """Process touchscreen press events."""
         # Y needs to be flipped
-        y = (self.display.height - 1) - y
+        #y = (self.display.height - 1) - y
+        # X needs to be flipped
+        x = (self.display.width - 1) - x
         # Display coordinates
         self.display.draw_text8x8(self.display.width // 2 - 32,
                                   self.display.height - 9,
@@ -45,9 +47,9 @@ class Demo(object):
 
 def test():
     """Test code."""
-    spi1 = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
-    display = Display(spi1, dc=Pin(4), cs=Pin(16), rst=Pin(17))
-    spi2 = SPI(2, baudrate=1000000, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
+    spi1 = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
+    display = Display(spi1, dc=Pin(16), cs=Pin(18), rst=Pin(17))
+    spi2 = SPI(0, baudrate=1000000, sck=Pin(2), mosi=Pin(3), miso=Pin(4))
 
     Demo(display, spi2)
 

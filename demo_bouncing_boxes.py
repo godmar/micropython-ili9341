@@ -79,8 +79,8 @@ def test():
     """Bouncing box."""
     try:
         # Baud rate of 40000000 seems about the max
-        spi = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
-        display = Display(spi, dc=Pin(4), cs=Pin(16), rst=Pin(17))
+        spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
+        display = Display(spi, dc=Pin(16), cs=Pin(18), rst=Pin(17))
         display.clear()
 
         colors = [color565(255, 0, 0),

@@ -18,11 +18,11 @@ def test():
             spi = SPI(clock=board.P0_24, MOSI=board.P0_22)
         else:
             from machine import Pin, SPI
-            cs_pin = Pin(16)
-            dc_pin = Pin(4)
+            cs_pin = Pin(18)
+            dc_pin = Pin(16)
             rst_pin = Pin(17)
             # Baud rate of 40000000 seems about the max
-            spi = SPI(1, baudrate=40000000, sck=Pin(14), mosi=Pin(13))
+            spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
 
         # Create the ILI9341 display:
         display = Display(spi, dc=dc_pin, cs=cs_pin, rst=rst_pin)
